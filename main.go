@@ -47,7 +47,7 @@ func _main() error {
 
 	job := <-reschan
 	if job != "done" {
-		return err
+		return fmt.Errorf("systemd-journald restart failed: %s", job)
 	}
 	fmt.Printf("systemd-journald restart successful\n")
 
